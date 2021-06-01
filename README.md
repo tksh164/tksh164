@@ -21,4 +21,4 @@ Here are some ideas to get you started:
 
 <img align="center" src="https://github-readme-stats.vercel.app/api?username=tksh164&show_icons=true&locale=en">
 
-<img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=tksh164&show_icons=true&locale=en&layout=compact" alt="tksh164">
+<img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=tksh164&show_icons=true&locale=en&layout=compact&langs_count=10">
