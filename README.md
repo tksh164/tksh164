@@ -15,4 +15,6 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
+<!--
 <img src="https://github-readme-stats.vercel.app/api?username=tksh164&hide_title=true&show_icons=true&locale=en&count_private=true&disable_animations=true&hide_rank=true&line_height=30">&nbsp;&nbsp;<img src="https://github-readme-streak-stats.herokuapp.com/?user=tksh164">&nbsp;&nbsp;<img src="https://github-readme-stats.vercel.app/api/top-langs?username=tksh164&show_icons=true&locale=en&layout=compact&langs_count=10">
+-->
