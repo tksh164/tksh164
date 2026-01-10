@@ -19,8 +19,8 @@ Here are some ideas to get you started:
 <img src="https://github-readme-stats.vercel.app/api?username=tksh164&hide_title=true&show_icons=true&locale=en&count_private=true&disable_animations=true&hide_rank=true&line_height=30">&nbsp;&nbsp;<img src="https://github-readme-streak-stats.herokuapp.com/?user=tksh164">&nbsp;&nbsp;<img src="https://github-readme-stats.vercel.app/api/top-langs?username=tksh164&show_icons=true&locale=en&layout=compact&langs_count=10">
 -->
 
-| Project | :star: | :arrow_upper_left::arrow_upper_right: | :eyes: | :arrow_down: |
-| ---- | :--: | :--: | :--: | :--: |
-| [Displayscope](https://github.com/tksh164/displayscope) | {{github:repo,tksh164,displayscope,starCount}} | {{github:repo,tksh164,displayscope,forkCount}} | {{github:repo,tksh164,displayscope,watcherCount}} | {{github:repo,tksh164,displayscope,downloadCount}} |
-| [Alter](https://github.com/tksh164/alter-rdp-client) | {{github:repo,tksh164,alter-rdp-client,starCount}} | {{github:repo,tksh164,alter-rdp-client,forkCount}} | {{github:repo,tksh164,alter-rdp-client,watcherCount}} | {{github:repo,tksh164,alter-rdp-client,downloadCount}} |
-| [AppUserModelID Stopgap Tools](https://github.com/tksh164/aumid-stopgap-tools) | {{github:repo,tksh164,aumid-stopgap-tools,starCount}} | {{github:repo,tksh164,aumid-stopgap-tools,forkCount}} | {{github:repo,tksh164,aumid-stopgap-tools,watcherCount}} | {{github:repo,tksh164,aumid-stopgap-tools,downloadCount}} |
+| Project | :speech_balloon: | :page_with_curl: | :star: | :trident: | :eyes: | :arrow_down: |
+| ---- | ---- | :--: | :--: | :--: | :--: | :--: |
+| [Displayscope](https://github.com/tksh164/displayscope) | {{github:repo,tksh164,displayscope,starsCount}} | {{github:repo,tksh164,displayscope,forksCount}} | {{github:repo,tksh164,displayscope,watchingCount}} | {{github:repo,tksh164,displayscope,downloadsCount}} |
+| [Alter](https://github.com/tksh164/alter-rdp-client) | {{github:repo,tksh164,alter-rdp-client,starsCount}} | {{github:repo,tksh164,alter-rdp-client,forksCount}} | {{github:repo,tksh164,alter-rdp-client,watchingCount}} | {{github:repo,tksh164,alter-rdp-client,downloadsCount}} |
+| [AppUserModelID Stopgap Tools](https://github.com/tksh164/aumid-stopgap-tools) | {{github:repo,tksh164,aumid-stopgap-tools,starsCount}} | {{github:repo,tksh164,aumid-stopgap-tools,forksCount}} | {{github:repo,tksh164,aumid-stopgap-tools,watchingCount}} | {{github:repo,tksh164,aumid-stopgap-tools,downloadsCount}} |
