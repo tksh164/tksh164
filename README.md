@@ -24,5 +24,5 @@ Here are some ideas to get you started:
 | [Alter](https://github.com/tksh164/alter-rdp-client) | Alter is a remote desktop client application. | C# | 17 | 4 | 1 | 395 |
 | [Displayscope](https://github.com/tksh164/displayscope) | 🔭 Displayscope enables to use the apps on the out of sight screen. | TypeScript | 22 | 2 | 2 | 3675 |
 | [AppUserModelID Stopgap Tools](https://github.com/tksh164/aumid-stopgap-tools) | The AppUserModelID Stopgap Tools allow you to pin the same application with different parameters and control their grouping on the taskbar. | C++ | 17 | 1 | 1 | 189 |
-| [HCI Lab](https://github.com/tksh164/hci-lab) | The HCI Lab provides a plain HCI lab environment on Azure in reasonable preparation time and cost. | PowerShell | 3 | 1 | 2 | 0 |
+| [HCI Lab](https://github.com/tksh164/hci-lab) | The HCI Lab provides a plain HCI lab environment on Azure in reasonable preparation time and cost. | PowerShell | 3 | 1 | 2 | n/a |
 
