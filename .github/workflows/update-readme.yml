@@ -1,0 +1,41 @@
+name: Update profile README
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # Runs every day at 01:00 UTC
+  workflow_dispatch:     # Allows you to run this workflow manually from the Actions tab
+
+permissions:
+  contents: write
+
+env:
+  TEMPLATE_FILE_PATH: .github/scripts/template.md
+  OUTPUT_FILE_PATH: README.md
+
+jobs:
+  update-profile-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current repository
+        uses: actions/checkout@v6
+
+      - name: Run PowerShell script to update profile README
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          .github/scripts/update-profile-readme.ps1 -TemplateFilePath $env:TEMPLATE_FILE_PATH -OutputFilePath $env:OUTPUT_FILE_PATH
+
+      - name: Commit and Push updated README
+        env:
+          COMMIT_MESSAGE: Update README
+        run: |
+          if [ -n "$(git status --porcelain $OUTPUT_FILE_PATH)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add $OUTPUT_FILE_PATH
+            git commit -m "$COMMIT_MESSAGE"
+            git push
+          else
+            echo "No changes to commit."
+          fi
