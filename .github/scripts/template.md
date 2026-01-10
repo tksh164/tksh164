@@ -19,7 +19,7 @@ Here are some ideas to get you started:
 <img src="https://github-readme-stats.vercel.app/api?username=tksh164&hide_title=true&show_icons=true&locale=en&count_private=true&disable_animations=true&hide_rank=true&line_height=30">&nbsp;&nbsp;<img src="https://github-readme-streak-stats.herokuapp.com/?user=tksh164">&nbsp;&nbsp;<img src="https://github-readme-stats.vercel.app/api/top-langs?username=tksh164&show_icons=true&locale=en&layout=compact&langs_count=10">
 -->
 
-| Project | :speech_balloon: | :page_with_curl: | :star: | :trident: | :eyes: | :feet: | :bust_in_silhouette: | :arrow_down: |
+| Repository | :speech_balloon: | :page_with_curl: | :star: | :trident: | :eyes: | :feet: | :bust_in_silhouette: | :arrow_down: |
 | ---- | ---- | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | [Alter](https://github.com/tksh164/alter-rdp-client) | {{github:repo,tksh164,alter-rdp-client,description}} | {{github:repo,tksh164,alter-rdp-client,language}} | {{github:repo,tksh164,alter-rdp-client,starsCount}} | {{github:repo,tksh164,alter-rdp-client,forksCount}} | {{github:repo,tksh164,alter-rdp-client,watchingCount}} | {{github:repo,tksh164,alter-rdp-client,totalViews}} | {{github:repo,tksh164,alter-rdp-client,uniqueVisitors}} |{{github:repo,tksh164,alter-rdp-client,downloadCount}} |
 | [Displayscope](https://github.com/tksh164/displayscope) | {{github:repo,tksh164,displayscope,description}} | {{github:repo,tksh164,displayscope,language}} | {{github:repo,tksh164,displayscope,starsCount}} | {{github:repo,tksh164,displayscope,forksCount}} | {{github:repo,tksh164,displayscope,watchingCount}} | {{github:repo,tksh164,displayscope,totalViews}} | {{github:repo,tksh164,displayscope,uniqueVisitors}} | {{github:repo,tksh164,displayscope,downloadCount}} |
