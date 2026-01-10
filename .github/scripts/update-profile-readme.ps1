@@ -1,3 +1,7 @@
+#
+# Copyright (c) 2025-present Takeshi Katano. All rights reserved.
+# Disclaimer: The codes stored herein are my own personal codes and do not related my employer's any way.
+#
 param (
     [Parameter(Mandatory = $true)]
     [string] $TemplateFilePath,
