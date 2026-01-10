@@ -19,7 +19,7 @@ Here are some ideas to get you started:
 <img src="https://github-readme-stats.vercel.app/api?username=tksh164&hide_title=true&show_icons=true&locale=en&count_private=true&disable_animations=true&hide_rank=true&line_height=30">&nbsp;&nbsp;<img src="https://github-readme-streak-stats.herokuapp.com/?user=tksh164">&nbsp;&nbsp;<img src="https://github-readme-stats.vercel.app/api/top-langs?username=tksh164&show_icons=true&locale=en&layout=compact&langs_count=10">
 -->
 
-| Project | :speech_balloon: | :page_with_curl: | :star: | :trident: | :eyes: | :feet: | :bust_in_silhouette: | :arrow_down: |
+| Repository | :speech_balloon: | :page_with_curl: | :star: | :trident: | :eyes: | :feet: | :bust_in_silhouette: | :arrow_down: |
 | ---- | ---- | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | [Alter](https://github.com/tksh164/alter-rdp-client) | Alter is a remote desktop client application. | C# | 17 | 4 | 1 | 32 | 11 |395 |
 | [Displayscope](https://github.com/tksh164/displayscope) | 🔭 Displayscope enables to use the apps on the out of sight screen. | TypeScript | 22 | 2 | 2 | 38 | 15 | 3675 |
