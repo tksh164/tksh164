@@ -83,9 +83,9 @@ function Invoke-GitHubAction
                     $result = Invoke-GitHubRestApiGetRepository -Owner $context.Owner -Repo $context.Repo
                     return $result.WatchingCount
                 }
-                'downloadsCount' {
+                'downloadCount' {
                     $result = Invoke-GitHubRestApiGetReleases -Owner $context.Owner -Repo $context.Repo
-                    return $result.DownloadsCount
+                    return $result.DownloadCount
                 }
                 Default {
                     Write-Error -Message ('Unknown Property: {0}' -f $context.Property)
@@ -198,12 +198,12 @@ function Invoke-GitHubRestApiGetReleases
 
         # Aggregate the download count of each release.
         $result = [PSCustomObject] @{
-            DownloadsCount = 0
+            DownloadCount = 0
         }
         $response | ForEach-Object -Process {
             $release = $_
             if (-not $release.draft) {
-                $result.DownloadsCount += [int] ($release.assets | Measure-Object -Sum -Property 'download_count').Sum
+                $result.DownloadCount += [int] ($release.assets | Measure-Object -Sum -Property 'download_count').Sum
             }
         }
 
@@ -213,7 +213,7 @@ function Invoke-GitHubRestApiGetReleases
     catch {
         Write-Error -Message $_.Exception.Message
         $result = [PSCustomObject] @{
-            DownloadsCount = 'N/A: {0}' -f $_.Exception.Message
+            DownloadCount = 'N/A: {0}' -f $_.Exception.Message
         }
         $GitHubRestApiResultCache.Add($cacheKey, $result);
         return $result
