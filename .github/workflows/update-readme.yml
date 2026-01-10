@@ -22,7 +22,7 @@ jobs:
       - name: Run PowerShell script to update profile README
         shell: pwsh
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PROFILE_README_PAT }}
         run: |
           .github/scripts/update-profile-readme.ps1 -TemplateFilePath $env:TEMPLATE_FILE_PATH -OutputFilePath $env:OUTPUT_FILE_PATH
 
