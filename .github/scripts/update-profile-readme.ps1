@@ -91,6 +91,14 @@ function Invoke-GitHubAction
                     $result = Invoke-GitHubRestApiGetReleases -Owner $context.Owner -Repo $context.Repo
                     return $result.DownloadCount
                 }
+                'uniqueVisitors' {
+                    $result = Invoke-GitHubRestApiGetPageViews -Owner $context.Owner -Repo $context.Repo
+                    return $result.UniqueVisitors
+                }
+                'totalViews' {
+                    $result = Invoke-GitHubRestApiGetPageViews -Owner $context.Owner -Repo $context.Repo
+                    return $result.TotalViews
+                }
                 Default {
                     Write-Error -Message ('Unknown Property: {0}' -f $context.Property)
                     return 'N/A: {0}' -f $context.Property
@@ -138,6 +146,14 @@ function Invoke-GitHubRestApiGetRepository
         return $GitHubRestApiResultCache[$cacheKey]
     }
 
+    $result = [PSCustomObject] @{
+        Description   = ''  # Description
+        Language      = ''  # Language
+        StarsCount    = 0   # Stars
+        ForksCount    = 0   # Forks
+        WatchingCount = 0   # Watching
+    }
+
     try {
         # Retrieve the star count, watcher count, and fork count of the target repository.
         $params = @{
@@ -149,29 +165,23 @@ function Invoke-GitHubRestApiGetRepository
         }
         $response = Invoke-RestMethod @params
 
-        $result = [PSCustomObject] @{
-            Description   = $response.description        # Description
-            Language      = $response.language           # Language
-            StarsCount    = $response.stargazers_count   # Stars
-            ForksCount    = $response.forks_count        # Forks
-            WatchingCount = $response.subscribers_count  # Watching
-        }
-
-        $GitHubRestApiResultCache.Add($cacheKey, $result);
-        return $result
+        $result.Description = $response.description
+        $result.Language = $response.language
+        $result.StarsCount = $response.stargazers_count
+        $result.ForksCount = $response.forks_count
+        $result.WatchingCount = $response.subscribers_count
     }
     catch {
         Write-Error -Message $_.Exception.Message
-        $result = [PSCustomObject] @{
-            Description   = 'N/A: {0}' -f $_.Exception.Message
-            Language      = 'N/A: {0}' -f $_.Exception.Message
-            StarsCount    = 'N/A: {0}' -f $_.Exception.Message
-            ForksCount    = 'N/A: {0}' -f $_.Exception.Message
-            WatchingCount = 'N/A: {0}' -f $_.Exception.Message
-        }
-        $GitHubRestApiResultCache.Add($cacheKey, $result);
-        return $result
+        $result.Description = 'N/A: {0}' -f $_.Exception.Message
+        $result.Language = 'N/A: {0}' -f $_.Exception.Message
+        $result.StarsCount = 'N/A: {0}' -f $_.Exception.Message
+        $result.ForksCount = 'N/A: {0}' -f $_.Exception.Message
+        $result.WatchingCount = 'N/A: {0}' -f $_.Exception.Message
     }
+
+    $GitHubRestApiResultCache.Add($cacheKey, $result);
+    return $result
 }
 
 function Invoke-GitHubRestApiGetReleases
@@ -189,6 +199,10 @@ function Invoke-GitHubRestApiGetReleases
         return $GitHubRestApiResultCache[$cacheKey]
     }
 
+    $result = [PSCustomObject] @{
+        DownloadCount = 0
+    }
+
     try {
         # Retrieve the release of the target repository.
         $params = @{
@@ -201,27 +215,64 @@ function Invoke-GitHubRestApiGetReleases
         $response = Invoke-RestMethod @params
 
         # Aggregate the download count of each release.
-        $result = [PSCustomObject] @{
-            DownloadCount = 0
-        }
         $response | ForEach-Object -Process {
             $release = $_
             if (-not $release.draft) {
                 $result.DownloadCount += [int] ($release.assets | Measure-Object -Sum -Property 'download_count').Sum
             }
         }
-
-        $GitHubRestApiResultCache.Add($cacheKey, $result);
-        return $result
     }
     catch {
         Write-Error -Message $_.Exception.Message
-        $result = [PSCustomObject] @{
-            DownloadCount = 'N/A: {0}' -f $_.Exception.Message
-        }
-        $GitHubRestApiResultCache.Add($cacheKey, $result);
-        return $result
+        $result.DownloadCount = 'N/A: {0}' -f $_.Exception.Message
     }
+
+    $GitHubRestApiResultCache.Add($cacheKey, $result);
+    return $result
+}
+
+function Invoke-GitHubRestApiGetPageViews
+{
+    param (
+        [Parameter(Mandatory = $true)]
+        [string] $Owner,
+
+        [Parameter(Mandatory = $true)]
+        [string] $Repo
+    )
+
+    $cacheKey = 'repos/{0}/{1}/traffic/views' -f $Owner, $Repo
+    if ($GitHubRestApiResultCache.ContainsKey($cacheKey)) {
+        return $GitHubRestApiResultCache[$cacheKey]
+    }
+
+    $result = [PSCustomObject] @{
+        UniqueVisitors = 0  # Unique visitors in last 14 days
+        TotalViews     = 0  # Total views in last 14 days
+    }
+
+    try {
+        # Retrieve the views of the target repository.
+        $params = @{
+            Uri     = 'https://api.github.com/repos/{0}/{1}/traffic/views' -f $Owner, $Repo
+            Method  = 'Get'
+            Headers = @{
+                Authorization = 'Bearer {0}' -f $env:GITHUB_TOKEN
+            }
+        }
+        $response = Invoke-RestMethod @params
+
+        $result.UniqueVisitors = $response.uniques
+        $result.TotalViews = $response.count
+    }
+    catch {
+        Write-Error -Message $_.Exception.Message
+        $result.UniqueVisitors = 'N/A: {0}' -f $_.Exception.Message
+        $result.TotalViews = 'N/A: {0}' -f $_.Exception.Message
+    }
+
+    $GitHubRestApiResultCache.Add($cacheKey, $result);
+    return $result
 }
 
 
